@@ -20,7 +20,7 @@ CREATE TABLE funcionario (
     id_setor INT,
     id_inspecao INT,
     turno VARCHAR(20) DEFAULT 'Primeiro',
-    status VARCHAR(20) DEFAULT 'Ativo',
+      n  VARCHAR(20) DEFAULT 'Ativo',
     FOREIGN KEY (id_setor)
         REFERENCES setor (id_setor),
 	FOREIGN KEY (id_inspecao)
@@ -69,6 +69,12 @@ CREATE TABLE entrega (
         REFERENCES epi (id_epi),
     FOREIGN KEY (id_estoque) 
         REFERENCES estoque (id_estoque) ON DELETE RESTRICT
+);
+
+CREATE TABLE fabricante (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cnpj VARCHAR(18)
 );
 
 CREATE INDEX idx_epi_entrega ON entrega(dt_entrega);
